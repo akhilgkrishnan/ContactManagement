@@ -1,7 +1,14 @@
-<div class="panel panel-default">
-    <table class="table">
 
-    
+
+<div class="panel panel-default">
+    <%= form_tag contacts_path, :method => 'get' do%>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "search" %>
+    <% end %>  
+    <table class="table">
+    <% if @contacts.count == 0 %>
+      <h1>No Contacts Found</h1>
+    <% end %>
     <% @contacts.order(:name).each do |contact| %>
       
       <tr>
@@ -41,6 +48,6 @@
 
   <div class="text-center">
     <nav>
-      <%= will_paginate %>
+      
     </nav>
   </div>
