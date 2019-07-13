@@ -1,14 +1,18 @@
 class ContactsController < ApplicationController
-  before_action :find_contact, only: [:edit, :update, :destroy]
+  before_action :find_contact, only: [:edit, :update, :destroy, :show]
   
   def index
-    @contacts = Contact.where(["name LIKE ?","%#{params[:search]}%"])
+    @contacts = Contact.where(["name LIKE ?","%#{params[:search]}%"]).paginate(page: params[:page], per_page: 10)
   	# @contacts = Contact.paginate(page: params[:page], per_page: 10) 
   end
 
   def new
     @contact = Contact.new
   end
+
+  def show
+    
+  end  
 
   def create
   	@contact = Contact.new(contact_params)
