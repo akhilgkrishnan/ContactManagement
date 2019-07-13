@@ -1,16 +1,25 @@
 
-
-<div class="panel panel-default">
-    <%= form_tag contacts_path, :method => 'get' do%>
-      <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag "search" %>
-    <% end %>  
-    <table class="table">
-    <% if @contacts.count == 0 %>
-      <h1>No Contacts Found</h1>
+<div class="row">
+    <%= form_tag contacts_path, :method => 'get', class: 'input-group'  do %>
+      <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Search for contacts...' %>
+      <span class="input-group-btn">
+        <%= submit_tag "search", class: "btn btn-default" %>
+      </span>
     <% end %>
-    <% @contacts.order(:name).each do |contact| %>
-      
+</div><br>     
+<div class="panel panel-default">
+    
+    
+    <table class="table">
+      <% if params[:search].present? %>
+        <% if @scoreboard_search.present? %>
+
+        <% else %>
+          No result found
+        <% end %>
+      <% end %>
+      <% @contacts.order(:name).each do |contact| %>
+        
       <tr>
         <td class="middle">
           <div class="media">
@@ -29,8 +38,11 @@
             </div>
           </div>
         </td>
-        <td width="100" class="middle">
+        <td width="120" class="middle">
           <div>
+            <span class="btn btn-circle btn-default btn-xs">
+              <i class="glyphicon glyphicon-chevron-right"></i> 
+            </span>
             <%= link_to edit_contact_path(contact), class: "btn btn-circle btn-default btn-xs", title: "Edit" do %>
               <i class="glyphicon glyphicon-edit"></i>
             <% end %>
@@ -48,6 +60,6 @@
 
   <div class="text-center">
     <nav>
-      
+      <%= will_paginate %>
     </nav>
   </div>
