@@ -3,8 +3,8 @@ class ContactsController < ApplicationController
   
   def index
     
-    @contacts = Contact.where(["lower(name) LIKE ?","%#{params[:search]}%"]).paginate(page: params[:page], per_page: 10)
-  	# @contacts = Contact.paginate(page: params[:page], per_page: 10) 
+    @contacts = Contact.where(["name LIKE ?","%#{params[:search]}%"]).paginate(page: params[:page], per_page: 10)
+  	
   end
 
   def new
