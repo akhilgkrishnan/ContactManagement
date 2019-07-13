@@ -12,49 +12,49 @@
     
     <table class="table">
       <% if params[:search].present? %>
-        <% if @scoreboard_search.present? %>
+        <% if @contacts.present? %>
 
-        <% else %>
-          No result found
-        <% end %>
-      <% end %>
-      <% @contacts.order(:name).each do |contact| %>
         
-      <tr>
-        <td class="middle">
-          <div class="media">
-            <div class="media-left">
-              <a href="#">
-                <%= image_tag contact.avatar.url(:thumb), class: "media-object" %>
-              </a>
-            </div>
-            <div class="media-body">
-              <h4 class="media-heading"><%= contact.name %></h4>
-              <address>
-                <strong><%= contact.company %></strong><br>
-                <%= contact.phone %><br>
-                <%= contact.email %>
-              </address>
-            </div>
-          </div>
-        </td>
-        <td width="120" class="middle">
-          <div>
-            <span class="btn btn-circle btn-default btn-xs">
-              <i class="glyphicon glyphicon-chevron-right"></i> 
-            </span>
-            <%= link_to edit_contact_path(contact), class: "btn btn-circle btn-default btn-xs", title: "Edit" do %>
-              <i class="glyphicon glyphicon-edit"></i>
-            <% end %>
-            <%= link_to contact_path(contact), :method => :delete, class: "btn btn-circle btn-danger btn-xs", title: "Delete", data: { confirm: "Are you sure ?" } do %>
-              <i class="glyphicon glyphicon-remove"></i>
-            <% end %>            
-          </div>
-        </td>
-      </tr>
+        <% @contacts.order(:name).each do |contact| %>
+        
+          <tr>
+            <td class="middle">
+              <div class="media">
+                <div class="media-left">
+                  <a href="#">
+                    <%= image_tag contact.avatar.url(:thumb), class: "media-object" %>
+                  </a>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading"><%= contact.name %></h4>
+                  <address>
+                    <strong><%= contact.company %></strong><br>
+                    <%= contact.phone %><br>
+                    <%= contact.email %>
+                  </address>
+                </div>
+              </div>
+            </td>
+            <td width="120" class="middle">
+              <div>
+                <span class="btn btn-circle btn-default btn-xs">
+                  <i class="glyphicon glyphicon-chevron-right"></i> 
+                </span>
+                <%= link_to edit_contact_path(contact), class: "btn btn-circle btn-default btn-xs", title: "Edit" do %>
+                  <i class="glyphicon glyphicon-edit"></i>
+                <% end %>
+                <%= link_to contact_path(contact), :method => :delete, class: "btn btn-circle btn-danger btn-xs", title: "Delete", data: { confirm: "Are you sure ?" } do %>
+                  <i class="glyphicon glyphicon-remove"></i>
+                <% end %>            
+              </div>
+            </td>
+          </tr>
 
+      <% end %>
+    <% else %>
+      No result found
     <% end %>
-      
+  <% end %>
     </table>            
   </div>
 
