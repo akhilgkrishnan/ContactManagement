@@ -11,9 +11,13 @@
     
     
     <table class="table">
+      <!--Display result not found message when search result not found-->
       <% if params[:search].present? %>
         <% if @contacts.present? %>
-
+        <% else %>
+          No result found
+        <% end %>
+      <% end %>
         
         <% @contacts.order(:name).each do |contact| %>
         
@@ -51,10 +55,7 @@
           </tr>
 
       <% end %>
-    <% else %>
-      No result found
-    <% end %>
-  <% end %>
+    
     </table>            
   </div>
 
