@@ -30,7 +30,7 @@
                   </a>
                 </div>
                 <div class="media-body">
-                  <h4 class="media-heading"><%= contact.name %></h4>
+                  <h4 class="media-heading"><%= link_to contact.name,contact %></h4>
                   <address>
                     <strong><%= contact.company %></strong><br>
                     <%= contact.phone %><br>
@@ -41,9 +41,10 @@
             </td>
             <td width="120" class="middle">
               <div>
-                <span class="btn btn-circle btn-default btn-xs">
+
+                <%= link_to contact, class: "btn btn-circle btn-default btn-xs", title: "View More" do %>
                   <i class="glyphicon glyphicon-chevron-right"></i> 
-                </span>
+                <% end %>
                 <%= link_to edit_contact_path(contact), class: "btn btn-circle btn-default btn-xs", title: "Edit" do %>
                   <i class="glyphicon glyphicon-edit"></i>
                 <% end %>
