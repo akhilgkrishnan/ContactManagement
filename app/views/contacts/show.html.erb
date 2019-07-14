@@ -2,5 +2,106 @@
     <div class="panel-heading">
         <strong>Show Contact</strong>
     </div> 
-    <%= render 'form' %>
+        
+    <div class="form-horizontal">
+            <div class="row">
+              <div class="col-md-8">
+
+                <div class="form-group">
+                  <div class="control-label col-md-3" ><strong>Name:</strong></div>            
+                  <div style="padding:9px;" class="col-md-8">
+                    <%= @contact.name %>  
+                  </div>              
+                </div>
+                
+    
+                <div class="form-group">
+                  <div class="control-label col-md-3" ><strong>Company:</strong></div>            
+                  <div style="padding:9px;" class="col-md-8">
+                    <%= @contact.company %>  
+                  </div>              
+                </div>
+
+                <div class="form-group">
+                  <div class="control-label col-md-3" ><strong>Email:</strong></div>            
+                  <div style="padding:9px;" class="col-md-8">
+                    <%= @contact.email %>  
+                  </div>              
+                </div>
+    
+                
+    
+                <div class="form-group">
+                  <div class="adderfield">
+                    <div class="control-label col-md-3" ><strong>Phone:</strong></div>              
+                    <div class="col-md-8">
+                      <%= @contact.phone %><button class="buttonshow"><div class="btn btn-circle btn-default btn-xs"><i class="glyphicon glyphicon-edit"></i><div></button><br>                
+                    </div> 
+                  </div>  
+                </div>         
+        
+                <div class="form-group">
+                  <div class="control-label col-md-3" ><strong>Address:</strong></div>            
+                    <div style="padding:9px;" class="col-md-8">
+                      <%= @contact.address %>  
+                    </div>             
+                </div>
+                
+                <div class="form-group">
+                  <label for="group" class="control-label col-md-3">Group</label>
+                  <div class="col-md-5">
+                    <select name="group" id="group" class="form-control">
+                      <option value="">Select group</option>
+                      <option value="1">Family</option>
+                      <option value="2">Friend</option>
+                      <option value="3">Other</option>
+                    </select>
+                  </div>
+                  <div class="col-md-3">
+                    <a href="#" id="add-group-btn" class="btn btn-default btn-block">Add Group</a>
+                  </div>
+                </div>
+                <div class="form-group" id="add-new-group" style="display: none;">
+                  <div class="col-md-offset-3 col-md-8">
+                    <div class="input-group">
+                      <input type="text" name="new_group" id="new_group" class="form-control">
+                      <span class="input-group-btn">
+                        <a href="#" class="btn btn-default">
+                          <i class="glyphicon glyphicon-ok"></i>
+                        </a>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="padding:50px;" class="col-md-4">
+                <div class="fileinput fileinput-new" data-provides="fileinput">
+                  <div class="fileinput-new thumbnail" style="width: 150px; height: 150px;">
+                    <%= image_tag @contact.avatar.url(:medium) %>
+                  </div>
+                  <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 150px; max-height: 150px;"></div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="row">
+                <div class="col-md-offset-3 col-md-6">
+                  
+                  <%= link_to "Edit", edit_contact_path, class: "btn btn-primary" %>
+                  <%= link_to "Delete", contact_path,:method => :delete, class: "btn btn-danger", title: "Delete", data: { confirm: "Are you sure ?" }%> 
+                  <%= link_to "Back", contacts_path, class: "btn btn-primary" %> 
+                  
+                             
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        
 </div>
