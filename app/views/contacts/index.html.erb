@@ -25,9 +25,9 @@
             <td class="middle">
               <div class="media">
                 <div class="media-left">
-                  <a href="#">
-                    <%= image_tag contact.avatar.url(:thumb), class: "media-object" %>
-                  </a>
+                  
+                  <%= link_to (image_tag contact.avatar.url(:thumb)),contact, class: "media-object" %>
+                  
                 </div>
                 <div class="media-body">
                   <h4 class="media-heading"><%= link_to contact.name,contact %></h4>
