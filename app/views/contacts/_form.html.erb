@@ -101,21 +101,17 @@
               </div>              
             </div>
 
-            <!--<div class="form-group">
-              <%= f.label :phone, class: "control-label col-md-3" %>               
-              <div class="col-md-8">
-                <%= f.text_field :phone, class: "form-control" %>                
-              </div>
-            </div>-->
-
+          
+            <%= f.fields_for :phone do |b| %>
             <div class="form-group">
               <div class="adderfield">
-                  <%= f.label :phone, class: "control-label col-md-3" %>               
+                  <%= b.label :phone, class: "control-label col-md-3" %>               
                   <div class="col-md-8">
-                    <%= f.text_field :phone,class: "form-control" %><button class="addphone"><div class="btn btn-circle btn-default btn-xs"><i class="glyphicon glyphicon-plus-sign"></i><div></button><br>                
+                    <%= b.text_field :phone,class: "form-control" %>              
                   </div> 
               </div>  
-            </div>         
+            </div> 
+            <% end %>        
                       
 
             
