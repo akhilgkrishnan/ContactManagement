@@ -3,13 +3,16 @@ class ContactsController < ApplicationController
   
   def index
       
+      
+      
       search = params[:search].to_s.downcase
       @contacts = Contact.where("lower(name) LIKE ?","%#{search}%").paginate(page: params[:page], per_page: 10)
-      
+     
   end
 
   def new
     @contact = Contact.new
+    @contact.phone.build
   end
 
   def show
@@ -28,7 +31,7 @@ class ContactsController < ApplicationController
 
 
   def edit  
-     
+    @contact.phone.build
   end
 
   def update    
@@ -51,10 +54,11 @@ class ContactsController < ApplicationController
 
   def find_contact
     @contact = Contact.find(params[:id])
+
   end
 
   def contact_params
-  	params.require(:contact).permit(:name, :email, :company, :address,:address2,:address3, :phone, :breif_note, :phone2, :phone3, :avatar)
+  	params.require(:contact).permit(:name, :email, :company, :address,:address2,:address3,:breif_note,:phone2, :phone3, :avatar,phone_attributes: [:phone, :id])
   end
   
 end
