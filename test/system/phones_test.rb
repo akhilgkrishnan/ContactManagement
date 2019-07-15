@@ -14,7 +14,7 @@ class PhonesTest < ApplicationSystemTestCase
     visit phones_url
     click_on "New Phone"
 
-    fill_in "Contact id", with: @phone.contact_id_id
+    fill_in "Contact", with: @phone.contact_id
     fill_in "Phone", with: @phone.phone
     click_on "Create Phone"
 
@@ -26,7 +26,7 @@ class PhonesTest < ApplicationSystemTestCase
     visit phones_url
     click_on "Edit", match: :first
 
-    fill_in "Contact id", with: @phone.contact_id_id
+    fill_in "Contact", with: @phone.contact_id
     fill_in "Phone", with: @phone.phone
     click_on "Update Phone"
 
