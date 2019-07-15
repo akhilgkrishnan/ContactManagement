@@ -30,37 +30,23 @@
                 </div>
     
                 
-                
-                <div class="form-group">
-                  <div class="adderfield">
-                    <label class="control-label col-md-3">Phone:</label>             
-                    <div class="col-md-8">
-                      <%= @contact.phone %>        
-                    </div> 
-                  </div>  
-                </div> 
-                
-                <% if @contact.phone2.present? %>
+              <% if @contact.phone.present? %>
+                <% @contact.phone.each do |b| %>
                   <div class="form-group">
                     <div class="adderfield">
-                      <label class="control-label col-md-3">Phone2:</label>             
-                      <div class="col-md-8">
-                        <%= @contact.phone2 %>            
-                      </div> 
+                      
+                        <label class="control-label col-md-3">Phone:</label>             
+                        <div class="col-md-8">
+                          <%= b.phone %>        
+                        </div> 
+                      
                     </div>  
-                  </div>
-                <% end %>  
+                  </div> 
+                <% end %>
+              <% end %>
+                
+                 
 
-                <% if @contact.phone3.present? %>
-                  <div class="form-group">
-                    <div class="adderfield">
-                      <label class="control-label col-md-3">Phone3:</label>             
-                      <div class="col-md-8">
-                        <%= @contact.phone3 %>            
-                      </div> 
-                    </div>  
-                  </div>
-                <% end %>  
         
               <div class="form-group">
                 <label class="control-label col-md-3">Address:</label>           
@@ -68,23 +54,9 @@
                   <%= @contact.address %>  
                 </div>             
               </div>
-              <%if @contact.address2.present? %>
-                <div class="form-group">
-                  <label class="control-label col-md-3">Address2:</label>           
-                  <div style="padding:9px;" class="col-md-8">
-                    <%= @contact.address2 %>  
-                  </div>             
-               </div>
-              <% end %>
+              
 
-              <%if @contact.address3.present? %>
-                <div class="form-group">
-                  <label class="control-label col-md-3">Address2:</label>           
-                  <div style="padding:9px;" class="col-md-8">
-                    <%= @contact.address3 %>  
-                  </div>             
-                </div>
-              <% end %>
+           
 
                 <div class="form-group">
                     <label class="control-label col-md-3">Brief-Note:</label>           
