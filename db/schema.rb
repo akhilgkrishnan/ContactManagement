@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_14_163549) do
+ActiveRecord::Schema.define(version: 2019_07_15_082951) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
@@ -22,10 +22,13 @@ ActiveRecord::Schema.define(version: 2019_07_14_163549) do
     t.datetime "updated_at", null: false
     t.string "avatar_file_name"
     t.string "avatar_content_type"
-    t.bigint "avatar_file_size"
+    t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string "phone2"
     t.text "breif_note"
+    t.string "phone3"
+    t.text "address2"
+    t.text "address3"
   end
 
 end
