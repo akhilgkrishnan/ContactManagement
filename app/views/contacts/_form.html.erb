@@ -1,28 +1,56 @@
 <%= form_for @contact, html: { multipart: true } do |f| %>          
     <div class="panel-body">
-    <script>
-  $(document).ready(function() {
-    
-    var max_fields      = 2; //maximum input boxes allowed
-    var wrapper   		= $(".adderfield"); //Fields wrapper
-    var add_button      = $(".buttonshow"); //Add button ID
-    
-    var x = 1; //initlal text box count
-    $(add_button).click(function(e){ //on add input button click
-      e.preventDefault();
-      if(x < max_fields){ //max input box allowed
-        x++; //text box increment
-        $(wrapper).append('<div class="sampleclass"><%= f.label :phone2, class: "control-label col-md-3" %><div class="col-md-8"><%= f.text_field :phone2, class: "form-control" %><a href="#" class="remove_field">Remove</a></div></div>'); //add input box
-      }
-    });
-    
-    $(wrapper).on("click",".remove_field", function(e){ 
-      //user click on remove text
-      //<%= f.text_field :phone2, value: "Nil" %>
-      e.preventDefault(); $(this).parent().parent('div').remove();  x--;
+  <script>
+    $(document).ready(function() {
       
-    })
-  });
+      var max_fields      = 3; //maximum input boxes allowed
+      var wrapperphone   		= $(".adderfield"); //Fields wrapper
+      var add_buttonphone      = $(".addphone"); //Add button ID
+      var wrapperaddress =  $(".adderaddress");
+      var add_buttonaddress =  $(".addaddress");
+      var y=1;
+        //initlal text box count
+      //Multiple Phonefield  
+      var x = 1;  
+      $(add_buttonphone).click(function(e){ //on add input button click
+        e.preventDefault();
+        if(x < max_fields){ //max input box allowed
+          x++; //text box increment
+          if(x==2){
+            $(wrapperphone).append('<div class="sampleclass"><%= f.label :phone2, class: "control-label col-md-3" %><div class="col-md-8"><%= f.text_field :phone2, class: "form-control" %><a href="#" class="remove_field">Remove</a></div></div>'); //add input box
+          }
+          else{
+            $(wrapperphone).append('<div class="sampleclass"><%= f.label :phone3, class: "control-label col-md-3" %><div class="col-md-8"><%= f.text_field :phone3,class: "form-control" %><a href="#" class="remove_field">Remove</a></div></div>'); //add input box
+          }
+        }
+      });
+      
+      $(wrapperphone).on("click",".remove_field", function(e){ 
+        //user click on remove text
+        $('#next').val('');
+        e.preventDefault(); $(this).parent().parent('div').remove();  x--;
+      })
+      //Multiple Address Field
+       
+      $(add_buttonaddress).click(function(e){ //on add input button click
+        e.preventDefault();
+        if(y < max_fields){ //max input box allowed
+          y++; //text box increment
+          if(y==2){
+            $(wrapperaddress).append('<div class="sampleclass"><%= f.label :address2, class: "control-label col-md-3" %><div class="col-md-8"><%= f.text_field :address2, class: "form-control" %><a href="#" class="remove_fieldadd">Remove</a></div></div>'); //add input box
+          }
+          else{
+            $(wrapperaddress).append('<div class="sampleclass"><%= f.label :address3, class: "control-label col-md-3" %><div class="col-md-8"><%= f.text_field :address3, class: "form-control" %><a href="#" class="remove_fieldadd">Remove</a></div></div>'); //add input box
+          }
+        }
+      });
+      
+      $(wrapperaddress).on("click",".remove_fieldadd", function(e){ 
+        //user click on remove text
+        
+        e.preventDefault(); $(this).parent().parent('div').remove();  y--;
+      })  
+    });
 </script>
       
       <% if @contact.errors.any? %>
@@ -82,10 +110,9 @@
 
             <div class="form-group">
               <div class="adderfield">
-                  
                   <%= f.label :phone, class: "control-label col-md-3" %>               
                   <div class="col-md-8">
-                    <%= f.text_field :phone,class: "form-control" %><button class="buttonshow"><div class="btn btn-circle btn-default btn-xs"><i class="glyphicon glyphicon-edit"></i><div></button><br>                
+                    <%= f.text_field :phone,class: "form-control" %><button class="addphone"><div class="btn btn-circle btn-default btn-xs"><i class="glyphicon glyphicon-plus-sign"></i><div></button><br>                
                   </div> 
               </div>  
             </div>         
@@ -93,11 +120,14 @@
 
             
             <div class="form-group">
-              <%= f.label :address, class: "control-label col-md-3" %>               
-              <div class="col-md-8">
-                <%= f.text_area :address, class: "form-control" %>                
+              <div class="adderaddress">
+                <%= f.label :address, class: "control-label col-md-3" %>               
+                <div class="col-md-8">
+                  <%= f.text_area :address, class: "form-control" %><button class="addaddress"><div class="btn btn-circle btn-default btn-xs"><i class="glyphicon glyphicon-plus-sign"></i><div></button><br>                
+                </div>
               </div>
             </div>
+
             <div class="form-group">
               <%= f.label :breif_note, class: "control-label col-md-3" %>               
               <div class="col-md-8">
