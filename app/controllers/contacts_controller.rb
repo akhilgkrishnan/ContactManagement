@@ -13,6 +13,7 @@ class ContactsController < ApplicationController
   def new
     @contact = Contact.new
     @contact.phone.build
+    @contact.address.build
   end
 
   def show
@@ -32,6 +33,7 @@ class ContactsController < ApplicationController
 
   def edit  
     @contact.phone.build
+    @contact.address.build
   end
 
   def update    
@@ -58,7 +60,9 @@ class ContactsController < ApplicationController
   end
 
   def contact_params
-  	params.require(:contact).permit(:name, :email, :company, :address,:address2,:address3,:breif_note,:phone2, :phone3, :avatar,phone_attributes: [:phone, :id])
+    #params.require(:contact).permit(:name, :email, :company, :address,:address2,:address3,:breif_note,:phone2, :phone3, :avatar,phone_attributes: [:phone, :id, :_destroy])
+    params.require(:contact).permit(:name, :email, :company,:breif_note,:avatar,phone_attributes: Phone.attribute_names.map(&:to_sym).push(:_destroy),address_attributes: Address.attribute_names.map(&:to_sym).push(:_destroy))
+
   end
   
 end
