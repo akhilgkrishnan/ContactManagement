@@ -32,8 +32,7 @@ class ContactsController < ApplicationController
 
 
   def edit  
-    @contact.phone.build
-    @contact.address.build
+    
   end
 
   def update    
