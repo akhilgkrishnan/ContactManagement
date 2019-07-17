@@ -1,4 +1,5 @@
 class Contact < ApplicationRecord
+    belongs_to :user
     has_many :phone, dependent: :destroy
     has_many :address, dependent: :destroy
     accepts_nested_attributes_for :phone,:address, allow_destroy: true
