@@ -51,6 +51,10 @@ gem 'faker', '~> 1.9', '>= 1.9.6'
 #Jquery
 gem 'jquery-rails'
 
+#Devise for user authentication
+
+gem 'devise'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
