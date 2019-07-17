@@ -35,7 +35,10 @@
     </nav>
     
 
-
+    <% if user_signed_in? %>
+      <p>Hello <%= current_user.uname %>- <%= link_to "Sign_out", destroy_user_session_path, :method => 'delete' %></p>
+      <br>
+      <% end %>
     <div class="jumbotron jumbotron-fluid" style="background-color: #8d9196">
         <div class="container">
           <h1 class="display-4">Contact Management System</h1>
