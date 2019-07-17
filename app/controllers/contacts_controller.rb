@@ -3,16 +3,13 @@ class ContactsController < ApplicationController
   before_action :find_contact, only: [:edit, :update, :destroy, :show]
   
   def index
-      
-      
-      
-      search = params[:search].to_s.downcase
-      @contacts = Contact.where("lower(name) LIKE ?","%#{search}%").paginate(page: params[:page], per_page: 10)
-     
+    search = params[:search].to_s.downcase
+    @contacts = Contact.where("lower(name) LIKE ?","%#{search}%").paginate(page: params[:page], per_page: 10)  
   end
 
   def new
     @contact = Contact.new
+    @contact.user = current_user
     @contact.phone.build
     @contact.address.build
   end
@@ -22,7 +19,8 @@ class ContactsController < ApplicationController
   end  
 
   def create
-  	@contact = Contact.new(contact_params)
+    @contact = Contact.new(contact_params)
+    @contact.user = current_user
   	if @contact.save
   		flash[:success] = "Successfully created new contact"
   		redirect_to contacts_path
@@ -37,7 +35,7 @@ class ContactsController < ApplicationController
   end
 
   def update    
-    
+    @contact.user = current_user
     if @contact.update(contact_params)
       flash[:success] = "Successfully update contact"
       redirect_to contact_path
@@ -61,7 +59,7 @@ class ContactsController < ApplicationController
 
   def contact_params
     #params.require(:contact).permit(:name, :email, :company, :address,:address2,:address3,:breif_note,:phone2, :phone3, :avatar,phone_attributes: [:phone, :id, :_destroy])
-    params.require(:contact).permit(:name, :email, :company,:breif_note,:avatar,phone_attributes: Phone.attribute_names.map(&:to_sym).push(:_destroy),address_attributes: Address.attribute_names.map(&:to_sym).push(:_destroy),user_attributes: [:uname, :id, :email])
+    params.require(:contact).permit(:name, :email, :company,:breif_note,:avatar,phone_attributes: Phone.attribute_names.map(&:to_sym).push(:_destroy),address_attributes: Address.attribute_names.map(&:to_sym).push(:_destroy))
 
   end
   
