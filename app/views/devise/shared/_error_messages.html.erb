@@ -7,14 +7,20 @@
        %>
     </h2>
     
-      <% resource.errors.full_messages.each do |message| %>
+
+    <div class="row">
+      <div class="col-md-12">
         <div class="alert alert-danger">
-          <button type="button" class="close"  data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <div class="alert alert-success">
-            <%= messages %>
-          </div>
+          <h3>Please correct this following errors:</h3>
+          <ul>
+            <% resource.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
         </div>
-      <% end %>
-    
+      </div>
+    </div>
+
+      
   </div>
 <% end %>
