@@ -4,6 +4,7 @@ class Contact < ApplicationRecord
     has_many :phone, dependent: :destroy
     has_many :address, dependent: :destroy
     accepts_nested_attributes_for :phone,:address, allow_destroy: true
+    
     # add validation
     validates :name, :email , presence: true
     has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
