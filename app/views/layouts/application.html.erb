@@ -9,6 +9,7 @@
 </head>
 
 
+
 <body>
 	<!-- navbar -->
     <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #282c33">
@@ -38,16 +39,14 @@
           </div>
         <% else %>
         <ul class="navbar-nav pull-right nav">
-          <li class="nav navbar-right">
+          <li class="<%= 'active' if current_page?(new_user_session_path) %>">
             <%= link_to new_session_path(resource_name),class: "pull-right" do%>
-            <i class="fas fa-sign-in-alt"></i>
-            Login
+            <i class="fas fa-sign-in-alt"></i>Login
             <% end %>
           </li>
-          <li class="nav navbar-right">
+          <li class="<%= 'active' if current_page?(new_user_registration_path) %>">
             <%= link_to  new_registration_path(resource_name) , class: "pull-right" do%>
-            <i class="fas fa-user-plus"></i> 
-            Register
+            <span class="nav-link"><i class="fas fa-user-plus"></i>Register</span>
             <% end %>
           </li>
           
