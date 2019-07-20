@@ -16,4 +16,8 @@ module ApplicationHelper
         end
         link_to(name, '#', class: "add_fields1 " + args[:class], data: {id: id, fields: fields.gsub("\n", "")})
     end
+
+    def is_active(action)       
+      params[:action] == action ? "active" : nil        
+    end
 end
