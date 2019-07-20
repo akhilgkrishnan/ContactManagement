@@ -1,9 +1,10 @@
 class Contact < ApplicationRecord
     belongs_to :user
+    belongs_to :group
     
     has_many :phone, dependent: :destroy
     has_many :address, dependent: :destroy
-    accepts_nested_attributes_for :phone,:address, allow_destroy: true
+    accepts_nested_attributes_for :phone,:address,:group, allow_destroy: true
     
     # add validation
     validates :name, :email , presence: true

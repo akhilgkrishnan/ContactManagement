@@ -3,8 +3,14 @@ class ContactsController < ApplicationController
   before_action :find_contact, only: [:edit, :update, :destroy, :show]
   
   def index
-    search = params[:search].to_s.downcase
-    @contacts = Contact.where("lower(name) LIKE ?","%#{search}%").paginate(page: params[:page], per_page: 10)  
+    if params[:group_id]
+      search = params[:search].to_s.downcase
+      @group = Group.find(params[:group_id])
+      @contacts = @group.contacts.where("lower(name) LIKE ?","%#{search}%").paginate(page: params[:page], per_page: 10)
+    else  
+      search = params[:search].to_s.downcase
+      @contacts = Contact.where("lower(name) LIKE ?","%#{search}%").paginate(page: params[:page], per_page: 10) 
+    end   
   end
 
   def new
@@ -59,7 +65,7 @@ class ContactsController < ApplicationController
 
   def contact_params
     #params.require(:contact).permit(:name, :email, :company, :address,:address2,:address3,:breif_note,:phone2, :phone3, :avatar,phone_attributes: [:phone, :id, :_destroy])
-    params.require(:contact).permit(:name, :email, :company,:breif_note,:avatar,phone_attributes: Phone.attribute_names.map(&:to_sym).push(:_destroy),address_attributes: Address.attribute_names.map(&:to_sym).push(:_destroy))
+    params.require(:contact).permit(:name, :email, :company,:breif_note,:group_id,:avatar,phone_attributes: Phone.attribute_names.map(&:to_sym).push(:_destroy),address_attributes: Address.attribute_names.map(&:to_sym).push(:_destroy))
 
   end
   
