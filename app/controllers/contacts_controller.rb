@@ -15,6 +15,7 @@ class ContactsController < ApplicationController
 
   def new
     @contact = Contact.new
+    @group = Group.new
     @contact.user = current_user
     @contact.phone.build
     @contact.address.build
@@ -26,6 +27,7 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
+    @group = Group.new(group_params)
     @contact.user = current_user
   	if @contact.save
   		flash[:success] = "Successfully created new contact"
@@ -68,5 +70,8 @@ class ContactsController < ApplicationController
     params.require(:contact).permit(:name, :email, :company,:breif_note,:group_id,:avatar,phone_attributes: Phone.attribute_names.map(&:to_sym).push(:_destroy),address_attributes: Address.attribute_names.map(&:to_sym).push(:_destroy))
 
   end
+  def group_params
+    params.require(:group).permit(:name)
+  end  
   
 end
