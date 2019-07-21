@@ -67,7 +67,7 @@ class ContactsController < ApplicationController
 
   def contact_params
     #params.require(:contact).permit(:name, :email, :company, :address,:address2,:address3,:breif_note,:phone2, :phone3, :avatar,phone_attributes: [:phone, :id, :_destroy])
-    params.require(:contact).permit(:name, :email, :company,:breif_note,:group_id,:avatar,phone_attributes: Phone.attribute_names.map(&:to_sym).push(:_destroy),address_attributes: Address.attribute_names.map(&:to_sym).push(:_destroy))
+    params.require(:contact).permit(:name, :email, :department,:breif_note,:group_id,:avatar,phone_attributes: Phone.attribute_names.map(&:to_sym).push(:_destroy),address_attributes: Address.attribute_names.map(&:to_sym).push(:_destroy),group_attributes: Group.attribute_names.map(&:to_sym).push(:_destroy))
 
   end
   

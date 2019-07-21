@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2019_07_20_165206) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
-    t.string "company"
+    t.string "department"
     t.string "email"
     t.string "phone"
     t.string "address"
@@ -30,13 +30,9 @@ ActiveRecord::Schema.define(version: 2019_07_20_165206) do
     t.datetime "updated_at", null: false
     t.string "avatar_file_name"
     t.string "avatar_content_type"
-    t.integer "avatar_file_size"
+    t.bigint "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.string "phone2"
     t.text "breif_note"
-    t.string "phone3"
-    t.text "address2"
-    t.text "address3"
     t.integer "user_id"
     t.integer "group_id"
   end
