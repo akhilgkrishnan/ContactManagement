@@ -18,8 +18,8 @@
 //= require turbolinks
 //= require_tree .
 $(document).on('turbolinks:load', function() {
-    $(".form-group").find("#deleter:first").remove();
-    $(".form-group").find("#deleteradd:first").remove();
+    //$(".form-group").find("#deleter:first").remove();
+    //$(".form-group").find("#deleteradd:first").remove();
     $('form').on('click', '.remove_record', function(event) {
       $(this).prev('input[type=hidden]').val('1');
       $(this).closest('div').hide();

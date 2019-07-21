@@ -8,7 +8,9 @@
         
     </div>
     <%= f.hidden_field :_destroy %>
+    <% if $countn != 1%>
     <%= link_to 'Delete', '', class: 'remove_record', id: 'deleter'  %>
+    <% end %>
 </div>  
    
 

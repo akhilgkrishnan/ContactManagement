@@ -53,25 +53,24 @@
 
           
             <div class="fields">
+              <%$count = 1%>
               <%= f.fields_for :phone do |builder| %>
                 <div class="form-group">
                   <%= render 'phone', f: builder %>
-                  
                 </div>
-                
+                <% $count = $count + 1%>
               <% end %>
             </div> 
                          
               
             <div class="fields2">
+                <%$counta = 1%>
               <%= f.fields_for :address do |ad| %>
                 <div class="form-group">
                   <%= render 'address', f: ad %>
-                  
                 </div>
-                
+                <% $counta = $counta + 1%>
               <% end %>
-              
             </div> 
 
             <div class="form-group">
