@@ -84,9 +84,11 @@
         </div>
       </div>
 	
-	<!-- content -->
+  <!-- content -->
+  
     <div class="container">
       <div class="row">
+      <% if user_signed_in? %>
         <div class="col-md-3">
           <div class="list-group">
 
@@ -103,8 +105,8 @@
             <% end %>
           </div>
         </div><!-- /.col-md-3 -->
-
-        <div class="col-md-9">
+      <% end %>
+        <div class="col-md-9 pull-right ">
 
           <!--Flash Messages-->
           <% flash.each do |type, message| %>
