@@ -7,11 +7,12 @@ UnivContact is a Contact management app for university Library. It is build usin
  * Rails 5+
 
 ## Installation
-`$ git clone https://github.com/AkhilGKrishnan/ContactManagement.git
+```
+$ git clone https://github.com/AkhilGKrishnan/ContactManagement.git
 $cd ContactManagement
 $ bundle install
 $ rake db:create
 $ rake db:migrate
-$ rails s`
+$ rails s
 
-
+```
