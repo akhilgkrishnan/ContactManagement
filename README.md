@@ -16,3 +16,4 @@ $ rake db:migrate
 $ rails s
 
 ```
+Use this APP : https://univcontact.herokuapp.com
