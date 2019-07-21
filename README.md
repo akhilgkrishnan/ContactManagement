@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+UnivContact is a Contact management app for university Library. It is build using Ruby on rails and SQLite.
 
-Things you may want to cover:
+## Prerequisite
+ * Ruby 2.5+
+ * Rails 5+
 
-* Ruby version
+## Installation
+`$ git clone https://github.com/AkhilGKrishnan/ContactManagement.git
+$cd ContactManagement
+$ bundle install
+$ rake db:create
+$ rake db:migrate
+$ rails s`
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
