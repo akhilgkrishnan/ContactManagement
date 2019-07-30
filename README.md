@@ -13,6 +13,13 @@ $cd ContactManagement
 $ bundle install
 $ rake db:create
 $ rake db:migrate
+//Before running the server need to create Groups, do the following ,
+$ rails c
+> Group.create(name: "Student")
+> Group.create(name: "Teacher")
+> Group.create(name: "Staff")
+> Group.create(name: "Other")
+> ctrl+Z
 $ rails s
 
 ```
