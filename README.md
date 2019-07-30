@@ -1,4 +1,4 @@
-# README
+#   UnivContact
 
 UnivContact is a Contact management app for university Library. It is build using Ruby on rails and SQLite.
 
