@@ -17,3 +17,8 @@ $ rails s
 
 ```
 Use this APP : https://univcontact.herokuapp.com
+
+## LICENSE & COPYRIGHTS
+
+(c) Akhil G Krishnan
+Lincensed under [MIT LICENSE](LICENSE).
