@@ -28,5 +28,5 @@ Use this APP : https://univcontact.herokuapp.com
 
 ## License & Copyrights
 
-(c) Akhil G Krishnan
+Akhil G Krishnan
 Lincensed under [MIT LICENSE](LICENSE).
