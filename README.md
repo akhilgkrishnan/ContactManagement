@@ -29,4 +29,4 @@ Use this APP : https://univcontact.herokuapp.com
 ## License & Copyrights
 
 Akhil G Krishnan
-Lincensed under [MIT LICENSE](LICENSE).
+Licensed under [MIT LICENSE](LICENSE).
