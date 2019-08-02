@@ -60,7 +60,7 @@
     <% if user_signed_in? %>
     <div style="text-align: center">
       <h1 >Hello <%= current_user.uname %></h1>
-          <%= link_to edit_user_registration_path, class: "btn btn-default" do %>
+          <%= link_to edit_user_registration_path(current_user), class: "btn btn-default" do %>
             <i class="fas fa-user-edit"></i>
             Edit Profile
           <% end %>  
