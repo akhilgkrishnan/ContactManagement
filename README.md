@@ -4,8 +4,8 @@
 UnivContact is a Contact management app for university Library. It is build using Ruby on rails and SQLite.
 
 ## Prerequisite
- * Ruby 2.5+
- * Rails 5+
+ * Ruby 2.5.5
+ * Rails 5.2.3
 
 ## Installation
 ```bash
@@ -16,11 +16,12 @@ $rake db:create
 $rake db:migrate
 //Before running the server need to create Groups, do the following ,
 $rails c
->Group.create(name: "Student")
->Group.create(name: "Teacher")
->Group.create(name: "Staff")
->Group.create(name: "Other")
->ctrl+Z
+Group.create(name: "Student")
+Group.create(name: "Teacher")
+Group.create(name: "Staff")
+Group.create(name: "Other")
+
+ctrl+Z
 $rails s
 
 ```
