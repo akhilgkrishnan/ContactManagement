@@ -101,8 +101,8 @@ config.action_mailer.smtp_settings = {
    :domain => 'myapp.herokuapp.com',  #I've also tried changing this to 'gmail.com'
    :authentication => :plain, # I've also tried changing this to :login
    :enable_starttls_auto => true,
-   :user_name => 'akhilgkrishnan4u@gmail.com',
-   :password => '@Amrutha7545'
+   :user_name => 'univcontact1@gmail.com',
+   :password => '@Univ123'
  }
  
   
