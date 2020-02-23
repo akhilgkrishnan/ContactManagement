@@ -4,12 +4,10 @@
 
       
       <% if @contact.errors.any? %>
-
         <div class="row">
           <div class="col-md-12">
             <div class="alert alert-danger">
               <h3>Please correct this following errors:</h3>
-
               <ul>
                 <% @contact.errors.full_messages.each do |message| %>
                   <li><%= message %></li>
@@ -18,12 +16,12 @@
             </div>
           </div>
         </div>
-
       <% end %>
 
       <div class="form-horizontal">
         <div class="row">
           <div class="col-md-8">
+
             <div class="form-group">
               <%= f.label :name, class: "control-label col-md-3" %>               
               <div class="col-md-8">
@@ -38,12 +36,6 @@
               </div>              
             </div>
 
-                
-            
-
-            
-            
-
             <div class="form-group">
               <%= f.label :email, class: "control-label col-md-3" %>               
               <div class="col-md-8">
@@ -51,7 +43,6 @@
               </div>              
             </div>
 
-          
             <div class="fields">
               <%$count = 1%>
               <%= f.fields_for :phone do |builder| %>
@@ -62,7 +53,6 @@
               <% end %>
             </div> 
                          
-              
             <div class="fields2">
                 <%$counta = 1%>
               <%= f.fields_for :address do |ad| %>
@@ -79,22 +69,21 @@
                 <%= f.text_area :breif_note, class: "form-control" %>                
               </div>
             </div>
+
             <div class="form-group">
               <label for="group" class="control-label col-md-3">Group</label>
               <div class="col-md-5">
                 <%= f.collection_select :group_id, Group.all, :id, :name, {prompt: "Select Group"}, class: "form-control"%>
-                
               </div>
             </div>
-            
-           
           </div>
+
           <div class="col-md-4">
             <div class="fileinput fileinput-new" data-provides="fileinput">
               <div class="fileinput-new thumbnail" style="width: 150px; height: 150px;">
                 <%= image_tag @contact.avatar.url(:medium) %>
-                
               </div>
+              
               <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 150px; max-height: 150px;"></div>
               <div class="text-center">
                 <span class="btn btn-default btn-file"><span class="fileinput-new">Choose Photo</span><span class="fileinput-exists">Change</span><%= f.file_field :avatar %></span>
