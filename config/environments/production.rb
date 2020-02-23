@@ -90,8 +90,8 @@ Rails.application.configure do
   end
 
   # Do not dump schema after migrations.
-  config.active_record.dump_schema_after_migration = false
-  config.action_mailer.default_url_options = {:host => 'myapp.herokuapp.com', :protocol => 'http'}
+config.active_record.dump_schema_after_migration = false
+config.action_mailer.default_url_options = {:host => 'myapp.herokuapp.com', :protocol => 'http'}
 config.action_mailer.raise_delivery_errors = true
 config.action_mailer.delivery_method = :smtp
 config.action_mailer.perform_deliveries = true
@@ -101,8 +101,8 @@ config.action_mailer.smtp_settings = {
    :domain => 'myapp.herokuapp.com',  #I've also tried changing this to 'gmail.com'
    :authentication => :plain, # I've also tried changing this to :login
    :enable_starttls_auto => true,
-   :user_name => 'univcontact1@gmail.com',
-   :password => '@Univ123'
+   :user_name => 'akhilgkrishnan4u@gmail.com',
+   :password => '@Amrutha7545'
  }
  
   
