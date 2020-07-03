@@ -1,5 +1,5 @@
 #   UnivContact
- [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)[![HitCount](http://hits.dwyl.com/AkhilGKrishnan/ContactManagement.svg)](http://hits.dwyl.com/AkhilGKrishnan/ContactManagement)
+ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)  [![HitCount](http://hits.dwyl.com/AkhilGKrishnan/ContactManagement.svg)](http://hits.dwyl.com/AkhilGKrishnan/ContactManagement)
 
 UnivContact is a Contact management app for university Library. It is build using Ruby on rails and SQLite.
 
