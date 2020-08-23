@@ -25,7 +25,6 @@ ctrl+Z
 $rails s
 
 ```
-Use this APP : https://univcontact.herokuapp.com
 
 ## License & Copyrights
 
