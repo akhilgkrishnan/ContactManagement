@@ -25,8 +25,7 @@ ctrl+Z
 $rails s
 
 ```
-Use this APP : https://univcontact.herokuapp.com
-
+Web Url: https://unicontact.herokuapp.com
 ## License & Copyrights
 
 Akhil G Krishnan
