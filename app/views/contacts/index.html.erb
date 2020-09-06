@@ -33,10 +33,7 @@
                   <h4 class="media-heading"><%= link_to contact.name.upcase,contact %></h4>
                   <address>
                     <strong><%= contact.department %></strong><br>
-                    <% contact.phone.each do |b| %>
-                      <%= b.phone  %>
-                      <% break %>
-                    <% end %>
+                    <%= contact.phone.first.phone%>
                     <br>
                    
                     <%= contact.email %>
